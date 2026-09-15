@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — EcoPlug by Pinachi Energies</title>
+<meta name="description" content="Get a free solar or EV charging estimate from EcoPlug. Call, WhatsApp, or send your details." />
+<link rel="icon" href="images/logo.png" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="EcoPlug logo" />
+      <span>
+        <span class="brand-name">EcoPlug</span>
+        <span class="brand-tag">by Pinachi Energies</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+919278494456" class="nav-phone">92784 94456</a>
+      <a href="contact.html" class="btn btn-solar" style="padding:9px 18px;font-size:0.9rem;">Get a quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="pill-label">Get in touch</span>
+    <h1>Tell us about your roof. We'll tell you what it could earn.</h1>
+    <p style="max-width:56ch;">Call, WhatsApp, or fill in the form — we usually reply the same day with a rough estimate before booking a site visit.</p>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="contact-grid">
+    <div>
+      <a href="tel:+919278494456" class="contact-card">
+        <div class="icon">📞</div>
+        <div>
+          <h3>Call us</h3>
+          <p>92784 94456 — for quick questions or to book a site visit directly.</p>
+        </div>
+      </a>
+      <a href="https://wa.me/919278494456" class="contact-card">
+        <div class="icon">💬</div>
+        <div>
+          <h3>WhatsApp</h3>
+          <p>Send a photo of your electricity bill and roof, and we'll get back with a rough estimate.</p>
+        </div>
+      </a>
+      <a href="mailto:hello@ecoplug.example" class="contact-card">
+        <div class="icon">✉️</div>
+        <div>
+          <h3>Email</h3>
+          <p>hello@ecoplug.example — replace with your real business email before you publish.</p>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default;">
+        <div class="icon">🕘</div>
+        <div>
+          <h3>Hours</h3>
+          <p>Monday–Saturday, 9:00 AM – 7:00 PM. Site visits by appointment.</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="lead-form" id="leadForm">
+      <div>
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name" />
+      </div>
+      <div>
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number" />
+      </div>
+      <div>
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest">
+          <option>Rooftop solar panels</option>
+          <option>EV charging station</option>
+          <option>Battery storage</option>
+          <option>Not sure yet — need advice</option>
+        </select>
+      </div>
+      <div>
+        <label for="bill">Approx. monthly electricity bill (₹)</label>
+        <input type="text" id="bill" name="bill" placeholder="e.g. 3500" />
+      </div>
+      <div>
+        <label for="message">Anything else we should know?</label>
+        <textarea id="message" name="message" placeholder="Roof size, shading, number of EVs, etc."></textarea>
+      </div>
+      <button type="submit" class="btn btn-solar">Send &amp; get a free estimate</button>
+      <p class="form-note">This opens your email app with the details filled in, addressed to us — nothing is sent automatically.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="EcoPlug logo" />
+          <strong>EcoPlug</strong>
+        </div>
+        <p style="max-width:36ch;font-size:0.88rem;">EcoPlug is the solar and EV-charging brand of Pinachi Energies, founded July 2026.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+919278494456">92784 94456</a></li>
+          <li><a href="https://wa.me/919278494456">WhatsApp us</a></li>
+          <li><a href="contact.html">Request a quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Pinachi Energies, operating as EcoPlug. All rights reserved.</span>
+      <span>Solar · EV Charging</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

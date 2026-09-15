@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EcoPlug — Solar &amp; EV Charging by Pinachi Energies</title>
+<meta name="description" content="EcoPlug installs home solar panels and EV charging stations. See how much a switch to solar could save you." />
+<link rel="icon" href="images/logo.png" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="EcoPlug logo" />
+      <span>
+        <span class="brand-name">EcoPlug</span>
+        <span class="brand-tag">by Pinachi Energies</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+919278494456" class="nav-phone">92784 94456</a>
+      <a href="contact.html" class="btn btn-solar" style="padding:9px 18px;font-size:0.9rem;">Get a quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO / INTERACTIVE STAGE ===================== -->
+<header class="hero" id="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow-chip"><span class="eyebrow-dot"></span> <span id="eyebrowText">Running on old-grid electricity</span></span>
+    <h1 id="heroHeadline">Your roof is sitting on a power plant it isn't using yet.</h1>
+    <p class="hero-sub" id="heroSub">Every hour of sunlight on your roof is electricity you're currently buying from the grid instead. See what changes the moment you switch it on.</p>
+    <div class="hero-actions">
+      <button class="btn btn-solar" id="activateBtn">Switch this roof to solar</button>
+      <button class="btn btn-outline" id="whatIsBtn" style="border-color:rgba(255,255,255,0.3);color:#fff;">What is renewable energy?</button>
+    </div>
+    <p class="hero-toggle-note" id="toggleNote">Click "Switch this roof to solar" — nothing to install, just a preview.</p>
+  </div>
+
+  <!-- the animated stage -->
+  <div class="wrap">
+    <div class="stage">
+      <div class="stage-sun" id="stageSun"></div>
+
+      <!-- simple city silhouette, dims when solar mode is on -->
+      <svg class="stage-city" viewBox="0 0 700 340" preserveAspectRatio="none" aria-hidden="true">
+        <rect x="20" y="180" width="50" height="160" fill="#233247"/>
+        <rect x="90" y="140" width="40" height="200" fill="#1c2a3d"/>
+        <rect x="600" y="160" width="50" height="180" fill="#233247"/>
+        <rect x="540" y="200" width="40" height="140" fill="#1c2a3d"/>
+      </svg>
+
+      <!-- house with roof panels -->
+      <svg class="stage-house" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- house base -->
+        <rect x="140" y="150" width="340" height="140" rx="4" fill="#e9edf1"/>
+        <polygon points="120,150 310,60 500,150" fill="#2b3d52"/>
+        <!-- door -->
+        <rect x="290" y="210" width="40" height="80" fill="#9aa7b4"/>
+        <!-- windows -->
+        <rect x="180" y="190" width="42" height="42" rx="3" fill="#bcd8ee" class="ev-glow"/>
+        <rect x="400" y="190" width="42" height="42" rx="3" fill="#bcd8ee" class="ev-glow"/>
+        <!-- solar panels on roof -->
+        <g class="panel">
+          <rect x="150" y="108" width="60" height="34" rx="2" fill="#1c3d63" stroke="#0f1b2b" stroke-width="2" transform="skewY(-8)"/>
+        </g>
+        <g class="panel">
+          <rect x="220" y="86" width="60" height="34" rx="2" fill="#1c3d63" stroke="#0f1b2b" stroke-width="2" transform="skewY(-8)"/>
+        </g>
+        <g class="panel">
+          <rect x="330" y="86" width="60" height="34" rx="2" fill="#1c3d63" stroke="#0f1b2b" stroke-width="2" transform="skewY(8)"/>
+        </g>
+        <g class="panel">
+          <rect x="400" y="108" width="60" height="34" rx="2" fill="#1c3d63" stroke="#0f1b2b" stroke-width="2" transform="skewY(8)"/>
+        </g>
+        <!-- sparkle over panels -->
+        <g class="spark">
+          <circle cx="240" cy="95" r="3" fill="#ffe28a"/>
+          <circle cx="360" cy="95" r="3" fill="#ffe28a"/>
+        </g>
+        <!-- EV charger + car -->
+        <rect x="500" y="230" width="14" height="60" rx="3" fill="#2e9e52"/>
+        <rect x="494" y="210" width="26" height="26" rx="4" fill="#2e9e52" class="ev-glow"/>
+        <g>
+          <rect x="520" y="250" width="90" height="34" rx="8" fill="#d7dee5"/>
+          <circle cx="540" cy="286" r="9" fill="#2b3d52"/>
+          <circle cx="592" cy="286" r="9" fill="#2b3d52"/>
+        </g>
+      </svg>
+
+      <!-- floating readout that appears once solar mode is on -->
+      <div class="stage-readout">
+        <span class="label">Est. monthly saving</span>
+        <span class="value" id="savingReadout">₹0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- persistent bottom-left savings ticker, starts after solar activation -->
+<div class="ticker" id="ticker">
+  <div class="ticker-dot">☀️</div>
+  <div class="ticker-text"><strong id="tickerNum">0 kWh</strong>would've been generated by now</div>
+</div>
+
+<!-- ===================== EXPLAINER DIALOG ===================== -->
+<div class="dialog-backdrop" id="dialogBackdrop">
+  <div class="dialog-card">
+    <button class="dialog-close" id="dialogClose" aria-label="Close">✕</button>
+    <h3>What is renewable energy?</h3>
+    <p>Renewable energy comes from sources that naturally replenish — sunlight, wind, and water — instead of being dug up and burned. Solar panels convert sunlight directly into electricity using semiconductor cells, with no combustion and no emissions at the point of use.</p>
+    <p>Once installed, a solar system keeps producing power for 25+ years with almost no running cost — the "fuel" is free. That's the whole economic case: you pay once for the equipment, then draw power from the sun instead of the grid for decades.</p>
+    <div class="dialog-actions">
+      <button class="btn btn-solar" id="dialogActivate">Show me on this roof</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== WHY SOLAR / STATS ===================== -->
+<section class="wrap" id="why">
+  <div class="section-head">
+    <span class="pill-label">Why it matters</span>
+    <h2>The sun sends more energy to your roof in an hour than your home uses all day.</h2>
+    <p>The gap between what's available and what's actually captured is where solar and EV charging pay for themselves.</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">25<span>+ yrs</span></div>
+      <p>Typical lifespan of a well-installed solar panel system.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><span>90%</span> less</div>
+      <p>Fewer lifecycle emissions than electricity from a coal-fired grid.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3–5<span> yrs</span></div>
+      <p>Typical time for a home solar system to pay back its own cost.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">0 <span>moving parts</span></div>
+      <p>Solar panels have no motors or turbines — very little to maintain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="wrap" id="services">
+  <div class="section-head">
+    <span class="pill-label">What we install</span>
+    <h2>Two systems, one goal: run your home on sunlight.</h2>
+    <p>We handle the full job — site survey, design, installation, and the paperwork that comes with it.</p>
+  </div>
+  <div class="service-list">
+    <div class="service-card">
+      <div class="service-icon">☀️</div>
+      <h3>Rooftop solar panels</h3>
+      <p>Custom-sized panel arrays for homes, matched to your roof shape and household usage, with monitoring so you can see output in real time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔌</div>
+      <h3>EV charging stations</h3>
+      <p>Home EV chargers installed and wired safely, sized to your vehicle and, where you've gone solar, tied into your own panel output.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔋</div>
+      <h3>Battery storage</h3>
+      <p>Store the solar power you don't use during the day and draw on it after sunset, or during a grid outage.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛠️</div>
+      <h3>Maintenance &amp; monitoring</h3>
+      <p>Periodic panel cleaning, inverter checks, and an app-based view of how much your system is generating and saving.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="wrap" id="process">
+  <div class="section-head">
+    <span class="pill-label">How it works</span>
+    <h2>From first call to switched-on roof.</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div></div>
+      <div>
+        <h3>Site visit &amp; usage check</h3>
+        <p>We look at your roof, shading, and your last few electricity bills to size the right system.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div></div>
+      <div>
+        <h3>System design &amp; quote</h3>
+        <p>You get a clear layout, expected output, and one all-in price — no hidden add-ons later.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div></div>
+      <div>
+        <h3>Installation</h3>
+        <p>Our crew installs panels, inverter, and (if ordered) your EV charger, usually within a day or two.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div></div>
+      <div>
+        <h3>Switch-on &amp; monitoring</h3>
+        <p>We commission the system with you present and hand over the monitoring app so you can track savings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="wrap">
+  <div class="cta-band">
+    <div>
+      <h2>Curious what your own roof could generate?</h2>
+      <p>Tell us your rough monthly electricity bill and we'll estimate the system size and savings.</p>
+    </div>
+    <div class="cta-band-actions">
+      <a href="contact.html" class="btn btn-solar">Get a free estimate</a>
+      <a href="https://wa.me/919278494456" class="btn btn-light">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="EcoPlug logo" />
+          <strong>EcoPlug</strong>
+        </div>
+        <p style="max-width:36ch;font-size:0.88rem;">EcoPlug is the solar and EV-charging brand of Pinachi Energies, founded July 2026.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+919278494456">92784 94456</a></li>
+          <li><a href="https://wa.me/919278494456">WhatsApp us</a></li>
+          <li><a href="contact.html">Request a quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Pinachi Energies, operating as EcoPlug. All rights reserved.</span>
+      <span>Solar · EV Charging</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
