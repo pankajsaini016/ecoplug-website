@@ -1,5 +1,5 @@
 /* =========================================================
-   EcoPlug (by Pinachi Energies) — stylesheet
+   EcoPlug (by Pinaki Energies) — stylesheet
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
@@ -87,7 +87,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
 .btn:hover { transform: translateY(-1px); }
 .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 
-.btn-solar {
+.btn-primary {
   background: linear-gradient(120deg, var(--gold), #ffcf5c);
   color: #38260a;
   box-shadow: 0 8px 24px rgba(255, 182, 39, 0.35);
@@ -207,7 +207,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   transition: background 1.4s ease;
   padding-top: 72px;
 }
-.hero.is-solar {
+.hero.is-charged {
   background: linear-gradient(180deg, #bfe4ff 0%, #eaf7ff 55%, #fef6e0 100%);
   color: var(--ink);
 }
@@ -231,7 +231,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   margin-bottom: 22px;
   transition: background 1.2s ease, border-color 1.2s ease, color 1.2s ease;
 }
-.hero.is-solar .eyebrow-chip {
+.hero.is-charged .eyebrow-chip {
   background: var(--green-soft);
   border-color: transparent;
   color: #1d6b39;
@@ -241,7 +241,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   background: #6b7a8f;
   transition: background 1.2s ease;
 }
-.hero.is-solar .eyebrow-dot { background: var(--green); }
+.hero.is-charged .eyebrow-dot { background: var(--green); }
 
 .hero h1 { max-width: 780px; margin-left: auto; margin-right: auto; }
 .hero-sub {
@@ -250,7 +250,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   color: rgba(255,255,255,0.72);
   transition: color 1.2s ease;
 }
-.hero.is-solar .hero-sub { color: var(--ink-soft); }
+.hero.is-charged .hero-sub { color: var(--ink-soft); }
 
 .hero-actions {
   display: flex;
@@ -266,35 +266,15 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   color: rgba(255,255,255,0.55);
   transition: color 1.2s ease;
 }
-.hero.is-solar .hero-toggle-note { color: var(--ink-soft); }
+.hero.is-charged .hero-toggle-note { color: var(--ink-soft); }
 
-/* --- the stage: sky, sun, rooftop, panels, car --- */
+/* --- the stage: street, charging post, car --- */
 .stage {
   position: relative;
   margin-top: 44px;
   height: 340px;
 }
 @media (min-width: 640px) { .stage { height: 400px; } }
-
-.stage-sun {
-  position: absolute;
-  left: 50%;
-  top: 210px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #fff6d8, var(--gold) 70%);
-  transform: translate(-50%, 0) scale(0.6);
-  opacity: 0;
-  box-shadow: 0 0 0 0 rgba(255,182,39,0);
-  transition: top 1.6s cubic-bezier(.2,.8,.2,1), opacity 1s ease, transform 1.6s ease, box-shadow 1.6s ease;
-}
-.hero.is-solar .stage-sun {
-  top: 6px;
-  opacity: 1;
-  transform: translate(-50%, 0) scale(1);
-  box-shadow: 0 0 60px 18px rgba(255,182,39,0.45);
-}
 
 .stage-city {
   position: absolute;
@@ -305,7 +285,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   opacity: 0.5;
   transition: opacity 1.2s ease;
 }
-.hero.is-solar .stage-city { opacity: 0.22; }
+.hero.is-charged .stage-city { opacity: 0.22; }
 
 .stage-house {
   position: absolute;
@@ -315,30 +295,33 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   width: min(90%, 620px);
 }
 
-.panel {
-  transform-origin: center;
-  opacity: 0;
-  transform: translateY(-14px) scale(0.85);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.2,.9,.3,1.2);
-}
-.hero.is-solar .panel { opacity: 1; transform: translateY(0) scale(1); }
-.hero.is-solar .panel:nth-of-type(1) { transition-delay: 0.15s; }
-.hero.is-solar .panel:nth-of-type(2) { transition-delay: 0.30s; }
-.hero.is-solar .panel:nth-of-type(3) { transition-delay: 0.45s; }
-.hero.is-solar .panel:nth-of-type(4) { transition-delay: 0.60s; }
-
-.spark {
+/* charging post bolt icon: hidden until activated, then pulses */
+.charge-bolt {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-.hero.is-solar .spark { opacity: 1; animation: spark-blink 1.8s ease-in-out infinite; }
+.hero.is-charged .charge-bolt { opacity: 1; animation: spark-blink 1.8s ease-in-out infinite; }
 @keyframes spark-blink { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+/* cable from post to car: draws itself in once activated */
+.charge-cable {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  transition: stroke-dashoffset 0.8s ease 0.2s;
+}
+.hero.is-charged .charge-cable { stroke-dashoffset: 0; }
+
+/* battery fill bar on the car: grows once activated */
+.battery-fill {
+  transition: width 1.6s ease 0.9s;
+}
+.hero.is-charged .battery-fill { width: 58px; }
 
 .ev-glow {
   opacity: 0;
   transition: opacity 1s ease 0.8s;
 }
-.hero.is-solar .ev-glow { opacity: 1; }
+.hero.is-charged .ev-glow { opacity: 1; }
 
 /* --- floating readout card on the stage --- */
 .stage-readout {
@@ -355,7 +338,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); max-width: 62ch; }
   transform: translateY(10px);
   transition: opacity 0.6s ease 1s, transform 0.6s ease 1s;
 }
-.hero.is-solar .stage-readout { opacity: 1; transform: translateY(0); }
+.hero.is-charged .stage-readout { opacity: 1; transform: translateY(0); }
 .stage-readout .label {
   font-size: 0.72rem;
   color: var(--ink-soft);
@@ -426,7 +409,7 @@ section { padding: 76px 0; }
   display: block;
 }
 
-/* --- why solar / stats --- */
+/* --- why home charging / stats --- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

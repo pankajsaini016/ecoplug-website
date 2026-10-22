@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var ticker = document.getElementById('ticker');
   var tickerNum = document.getElementById('tickerNum');
 
-  var solarActive = false;
-  var savingInterval = null;
+  var chargingActive = false;
   var tickerInterval = null;
 
   function openDialog() {
@@ -41,23 +40,23 @@ document.addEventListener('DOMContentLoaded', function () {
     dialogBackdrop.classList.remove('open');
   }
 
-  function activateSolar() {
-    if (solarActive) return;
-    solarActive = true;
+  function activateCharging() {
+    if (chargingActive) return;
+    chargingActive = true;
 
-    hero.classList.add('is-solar');
-    eyebrowText.textContent = 'Running on sunlight';
-    heroHeadline.textContent = "That's what your roof could be doing right now.";
-    heroSub.textContent = "Panels, EV charger, and a live savings estimate — this is a preview of a real EcoPlug install, sized to an average home.";
-    toggleNote.textContent = 'This is a preview. A real quote is based on your roof and your bills.';
-    activateBtn.textContent = 'Solar mode is on';
+    hero.classList.add('is-charged');
+    eyebrowText.textContent = 'Charging at home overnight';
+    heroHeadline.textContent = "That's what charging at home actually looks like.";
+    heroSub.textContent = "Plugged in, charging, and a live savings estimate — this is a preview of a real EcoPlug install, sized to an average EV.";
+    toggleNote.textContent = 'This is a preview. A real quote is based on your vehicle and your wiring.';
+    activateBtn.textContent = 'Charging mode is on';
     activateBtn.disabled = true;
     activateBtn.style.opacity = '0.7';
     activateBtn.style.cursor = 'default';
 
     // animate the savings readout counting up to an estimated monthly saving
     setTimeout(function () {
-      var target = 2400;
+      var target = 3200;
       var startTime = null;
       var duration = 1200;
       function step(ts) {
@@ -77,20 +76,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // show the persistent bottom-left ticker and keep it climbing gently
     setTimeout(function () {
       ticker.classList.add('show');
-      var kwh = 0;
+      var km = 0;
       tickerInterval = setInterval(function () {
-        kwh += 1;
-        tickerNum.textContent = kwh + ' kWh';
+        km += 6;
+        tickerNum.textContent = km + ' km';
       }, 4000);
     }, 1800);
   }
 
-  activateBtn.addEventListener('click', activateSolar);
+  activateBtn.addEventListener('click', activateCharging);
   whatIsBtn.addEventListener('click', openDialog);
   dialogClose.addEventListener('click', closeDialog);
   dialogActivate.addEventListener('click', function () {
     closeDialog();
-    activateSolar();
+    activateCharging();
     hero.scrollIntoView({ behavior: 'smooth' });
   });
   dialogBackdrop.addEventListener('click', function (e) {
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
     var interest = document.getElementById('interest').value;
-    var bill = document.getElementById('bill').value;
+    var vehicle = document.getElementById('vehicle').value;
     var message = document.getElementById('message').value;
 
     var subject = encodeURIComponent('New enquiry: ' + name);
@@ -119,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
       'Name: ' + name + '\n' +
       'Phone: ' + phone + '\n' +
       'Interested in: ' + interest + '\n' +
-      'Approx. monthly bill: ' + bill + '\n' +
+      'Vehicle: ' + vehicle + '\n' +
       'Message: ' + message
     );
     window.location.href = 'mailto:hello@ecoplug.example?subject=' + subject + '&body=' + body;

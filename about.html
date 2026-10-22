@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About — EcoPlug by Pinachi Energies</title>
-<meta name="description" content="EcoPlug is the solar and EV charging brand of Pinachi Energies, founded July 2026." />
-<link rel="icon" href="images/logo.png" />
+<title>About — EcoPlug by Pinaki Energies</title>
+<meta name="description" content="EcoPlug is the EV charging brand of Pinaki Energies, founded July 2026." />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,10 +12,21 @@
 <nav class="site-nav">
   <div class="wrap">
     <a href="index.html" class="brand">
-      <img src="images/logo.png" alt="EcoPlug logo" />
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="38" height="38">
+          <circle cx="24" cy="24" r="23" fill="url(#markGradAbout)"/>
+          <path d="M26 11 L16 26 H23 L21 37 L33 20 H25 Z" fill="#fff"/>
+          <defs>
+            <linearGradient id="markGradAbout" x1="0" y1="0" x2="48" y2="48">
+              <stop offset="0" stop-color="#2e9e52"/>
+              <stop offset="1" stop-color="#1c6dd0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
       <span>
         <span class="brand-name">EcoPlug</span>
-        <span class="brand-tag">by Pinachi Energies</span>
+        <span class="brand-tag">by Pinaki Energies</span>
       </span>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -27,7 +37,7 @@
     </ul>
     <div class="nav-cta">
       <a href="tel:+919278494456" class="nav-phone">92784 94456</a>
-      <a href="contact.html" class="btn btn-solar" style="padding:9px 18px;font-size:0.9rem;">Get a quote</a>
+      <a href="contact.html" class="btn btn-primary" style="padding:9px 18px;font-size:0.9rem;">Get a quote</a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -38,8 +48,8 @@
 <header class="page-hero">
   <div class="wrap">
     <span class="pill-label">Our story</span>
-    <h1>We started EcoPlug because most homes are still paying for power they could be making themselves.</h1>
-    <p style="max-width:60ch;">Pinachi Energies was founded in July 2026, and EcoPlug is our brand for everything solar and EV — from a single rooftop system to a charging point in your driveway.</p>
+    <h1>We started EcoPlug because charging an EV shouldn't mean planning your day around a queue.</h1>
+    <p style="max-width:60ch;">Pinaki Energies was founded in July 2026, and EcoPlug is our brand for home and workplace EV charging — from a single driveway charger to multi-point setups for offices and apartments.</p>
   </div>
 </header>
 
@@ -48,10 +58,21 @@
     <div>
       <span class="pill-label">Who we are</span>
       <h2>A local team, built for one job.</h2>
-      <p>We're not a general electrical contractor that also does solar. Solar panel installation and EV charging infrastructure are the only two things we do, which means every visit, every quote, and every install is handled by people who specialize in exactly this.</p>
-      <p>We started EcoPlug with a simple observation: solar technology has gotten cheaper and more reliable every year, but most homeowners still don't know what a system would actually cost them, or save them. Our first job on every project is making that number clear before you commit to anything.</p>
+      <p>We're not a general electrician who also installs chargers on the side. EV charging infrastructure is the only thing we do, which means every site visit, every quote, and every install is handled by people who specialize in exactly this.</p>
+      <p>We started EcoPlug with a simple observation: EV ownership is growing fast, but home charging is still confusing for most new owners — what charger to buy, whether their wiring can handle it, how long a real charge takes. Our first job on every project is making that clear before you commit to anything.</p>
     </div>
-    <img src="images/banner.jpg" alt="EcoPlug solar panels and EV charging station" />
+    <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:14px;background:var(--green-soft);" aria-hidden="true">
+      <rect x="40" y="220" width="320" height="30" fill="#1c2a3d" opacity="0.15"/>
+      <rect x="170" y="90" width="16" height="110" rx="4" fill="#1c3d63"/>
+      <rect x="152" y="60" width="52" height="46" rx="8" fill="#1c3d63"/>
+      <rect x="160" y="70" width="36" height="20" rx="2" fill="#bcd8ee"/>
+      <circle cx="178" cy="83" r="8" fill="#ffb627"/>
+      <path d="M186 106 C 220 130, 230 140, 250 150" stroke="#1c3d63" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <rect x="240" y="140" width="150" height="45" rx="12" fill="#2e9e52" opacity="0.85" transform="translate(-20,0)"/>
+      <rect x="265" y="115" width="95" height="32" rx="10" fill="#2e9e52" opacity="0.85" transform="translate(-20,0)"/>
+      <circle cx="245" cy="188" r="12" fill="#14361f"/>
+      <circle cx="355" cy="188" r="12" fill="#14361f"/>
+    </svg>
   </div>
 </section>
 
@@ -63,15 +84,15 @@
   <div class="values-grid">
     <div class="value-card">
       <h3>Straight numbers</h3>
-      <p>Every quote shows expected output and payback time in plain terms, based on your actual roof and bills — not a generic brochure figure.</p>
+      <p>Every quote shows expected charge time and running cost in plain terms, based on your actual vehicle and electrical setup — not a generic brochure figure.</p>
     </div>
     <div class="value-card blue">
       <h3>One team, start to finish</h3>
-      <p>The people who design your system are the same people who install it and the same people you call afterward. No handoffs, no finger-pointing.</p>
+      <p>The people who survey your site are the same people who install the charger and the same people you call afterward. No handoffs, no finger-pointing.</p>
     </div>
     <div class="value-card gold">
-      <h3>Built to outlast the loan</h3>
-      <p>We size and install systems to run for 25+ years, because a system that underperforms in year three isn't a saving, it's a liability.</p>
+      <h3>Safety first, always</h3>
+      <p>Every install includes a proper electrical load check — a home charger pulls serious current, and we size the wiring and breaker to handle it safely for years.</p>
     </div>
   </div>
 </section>
@@ -79,11 +100,11 @@
 <section class="wrap">
   <div class="cta-band">
     <div>
-      <h2>New to solar? Start with a free estimate.</h2>
-      <p>We'll look at your roof and your last few bills, and tell you what's realistic — no obligation.</p>
+      <h2>New to EV charging? Start with a free estimate.</h2>
+      <p>We'll look at your vehicle, your parking spot, and your wiring, and tell you what's realistic — no obligation.</p>
     </div>
     <div class="cta-band-actions">
-      <a href="contact.html" class="btn btn-solar">Talk to us</a>
+      <a href="contact.html" class="btn btn-primary">Talk to us</a>
       <a href="index.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">See it in action</a>
     </div>
   </div>
@@ -94,10 +115,21 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="images/logo.png" alt="EcoPlug logo" />
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="34" height="34">
+              <circle cx="24" cy="24" r="23" fill="url(#markGradFooterAbout)"/>
+              <path d="M26 11 L16 26 H23 L21 37 L33 20 H25 Z" fill="#fff"/>
+              <defs>
+                <linearGradient id="markGradFooterAbout" x1="0" y1="0" x2="48" y2="48">
+                  <stop offset="0" stop-color="#2e9e52"/>
+                  <stop offset="1" stop-color="#1c6dd0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
           <strong>EcoPlug</strong>
         </div>
-        <p style="max-width:36ch;font-size:0.88rem;">EcoPlug is the solar and EV-charging brand of Pinachi Energies, founded July 2026.</p>
+        <p style="max-width:36ch;font-size:0.88rem;">EcoPlug is the EV charging brand of Pinaki Energies, founded July 2026.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -118,8 +150,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Pinachi Energies, operating as EcoPlug. All rights reserved.</span>
-      <span>Solar · EV Charging</span>
+      <span>© 2026 Pinaki Energies, operating as EcoPlug. All rights reserved.</span>
+      <span>EV Charging</span>
     </div>
   </div>
 </footer>
